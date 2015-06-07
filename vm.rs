@@ -192,16 +192,16 @@ fn main() {
 					r2 = op2(&reg, ip, &mem);
 				}
 				if r1 == r2{
-					reg[FL as usize] = 0;
+					reg[FL] = 0;
 				} else if r1 > r2 {
-					reg[FL as usize] = 1;
+					reg[FL] = 1;
 				} else {
-					reg[FL as usize] = 0xFF;
+					reg[FL] = 0xFF;
 				}
 				ip += 1;
 			}
 			JMPE => {
-				if reg[FL as usize] == 0 {
+				if reg[FL] == 0 {
 					if mod0(ins) {
 						ip = reg[op1(ins) as usize];
 					} else {
